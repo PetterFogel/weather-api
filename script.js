@@ -1,7 +1,19 @@
+const inputValue = document.getElementById("input-value");
+const submitBtn = document.querySelector(".submit-btn");
+
+
 window.addEventListener("load", main);
 
 function main() {
-    fetchYearswithFetch();
+    addEventListeners();
+}
+
+function addEventListeners() {
+    const form = document.querySelector(".form-container");
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetchYearswithFetch();
+    });
 }
 
 async function fetchYearswithFetch() {
