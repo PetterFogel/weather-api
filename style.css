@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #86c4df;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-container {
+    background: #d84b5c;
+    padding: 3rem 4rem 2rem 4rem;
+    border-radius: 1rem;
+}
+
+.weather-values {
+    color: #fff;
+    height: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.city-value {
+    font-size: 1rem;
+}
+
+.weather-values i {
+    font-size: 5rem;
+}
+
+.temp-value {
+    font-size: 3rem;
+}
+
+.form-container {
+}
+
+#input-value {
+    border-radius: 0.6rem;
+    border: none;
+    outline: none;
+    color: #ddd;
+    height: 2rem;
+    width: 10rem;
+    margin-bottom: 1rem;
+}
+
+.submit-btn {
+    display: block;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.6rem;
+    border: none;
+    outline: none;
+    background: #86c4df;
+    color: #fff;
+    box-shadow: 0.1rem 0.1rem 0.4rem #333;
+    cursor: pointer;
+}
