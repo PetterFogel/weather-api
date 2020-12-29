@@ -3,17 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Api</title>
     <link rel="stylesheet" href="style.css">
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+        integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA=="
+        crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <title>Weather Api</title>
     <script defer src="script.js"></script>
 </head>
 <body>
-    <h1>Hello World!</h1>
-    
-    <form action="/" class="form-container">
-        <input type="text" id="input-value">
-        <input type="submit" class="submit-btn">
-    </form>
+    <div class="app-container">
+        <div class="weather-values">
+            <h3 class="city-value">City</h3>
+            <!-- Will add weather images instead of icons. -->
+            <i class="fas fa-cloud-sun-rain"></i>
+            <h2 class="temp-value">15</h2>
+        </div>
+        <form action="/" class="form-container">
+            <input type="text" id="input-value" placeholder="Search loction...">
+            <input type="submit" class="submit-btn" value="Search">
+        </form>
+    </div>
     
 </body>
 </html>
