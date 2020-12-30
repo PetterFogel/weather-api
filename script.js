@@ -22,4 +22,10 @@ async function fetchApiswithFetch() {
     const result = await fetch(url);
     const data = await result.json();
     console.log(data);
+    fetchHtmlElements(data);
+}
+
+function fetchHtmlElements(data) {
+    const cityValue = document.querySelector(".city-value");
+    cityValue.innerHTML = data.name;
 }
