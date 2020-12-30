@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background: #86c4df;
+    background: #f8eedf;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -14,7 +14,8 @@ body {
 }
 
 .app-container {
-    background: #d84b5c;
+    background: linear-gradient(135deg, rgba(58,163,169,1) 30%, rgba(50,146,155,1) 35%, rgba(65,100,125,1) 61%, rgba(51,70,93,1) 78%);
+    box-shadow: 0rem 1.5rem 1.5rem -0.7rem #333;
     padding: 3rem 4rem 2rem 4rem;
     border-radius: 1rem;
 }
@@ -22,13 +23,14 @@ body {
 .weather-values {
     color: #fff;
     height: 15rem;
+    width: 10rem;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
 }
 
-.city-value {
+.location-value {
     font-size: 1rem;
 }
 
@@ -37,7 +39,7 @@ body {
 }
 
 .temp-value {
-    font-size: 3rem;
+    font-size: 5rem;
 }
 
 .form-container {
@@ -57,13 +59,13 @@ body {
     padding-left: 0.5rem;
 }
 
-.submit-btn {
+.btn {
     display: block;
     padding: 0.5rem 0.8rem;
     border-radius: 0.6rem;
     border: none;
     outline: none;
-    background: #86c4df;
+    background: #5c93ab;
     color: #fff;
     box-shadow: 0.1rem 0.1rem 0.4rem #333;
     cursor: pointer;
