@@ -41,16 +41,20 @@ body {
 }
 
 .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #input-value {
     border-radius: 0.6rem;
     border: none;
     outline: none;
-    color: #ddd;
+    color: #333;
     height: 2rem;
     width: 10rem;
     margin-bottom: 1rem;
+    padding-left: 0.5rem;
 }
 
 .submit-btn {
