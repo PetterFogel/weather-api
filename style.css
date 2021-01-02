@@ -15,7 +15,7 @@ body {
 
 .app-container {
     background: linear-gradient(135deg, rgba(58,163,169,1) 30%, rgba(50,146,155,1) 35%, rgba(65,100,125,1) 61%, rgba(51,70,93,1) 78%);
-    box-shadow: 0rem 1.5rem 1.5rem -0.7rem #333;
+    box-shadow: 0rem 1.5rem 1.6rem -0.8rem #333;
     padding: 3rem 4rem 2rem 4rem;
     border-radius: 1rem;
 }
@@ -26,7 +26,7 @@ body {
     width: 10rem;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: column;
 }
 
@@ -40,6 +40,7 @@ body {
 
 .temp-value {
     font-size: 5rem;
+    align-self: center;
 }
 
 .form-container {
@@ -65,8 +66,18 @@ body {
     border-radius: 0.6rem;
     border: none;
     outline: none;
-    background: #5c93ab;
+    background: #3aa3a9;
     color: #fff;
     box-shadow: 0.1rem 0.1rem 0.4rem #333;
     cursor: pointer;
+    transition: background 300ms ease;
+}
+
+.btn:hover {
+    background: #31868a;
+}
+
+img {
+    width: 7rem;
+    height: auto;
 }
