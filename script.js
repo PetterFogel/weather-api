@@ -1,5 +1,3 @@
-const submitBtn = document.querySelector(".submit-btn");
-
 window.addEventListener("load", main);
 
 function main() {
@@ -10,11 +8,11 @@ function addEventListeners() {
     const form = document.querySelector(".form-container");
     form.addEventListener("submit", (e) => {
         e.preventDefault();
-        fetchApiswithFetch();
+        fetchApiwithFetch();
     });
 }
 
-async function fetchApiswithFetch() {
+async function fetchApiwithFetch() {
     const searchInput = document.getElementById("input-value");
     const inputValue = searchInput.value;
 
@@ -22,13 +20,21 @@ async function fetchApiswithFetch() {
     const result = await fetch(url);
     const data = await result.json();
     console.log(data);
+    displayWeather(data);
+}
+
+function displayWeather(data) {
     fetchHtmlElements(data);
     calculateToCelsius(data);
+    // Test
+    fetchImage(data);
 }
 
 function fetchHtmlElements(data) {
-    const cityValue = document.querySelector(".city-value");
-    cityValue.innerText = data.name;
+    const locationValue = document.querySelector(".location-value");
+    locationValue.innerText = data.name + ", " + data.sys.country;
+
+    console.log(data.sys.country);
 }
 
 function calculateToCelsius(data) {
@@ -36,6 +42,18 @@ function calculateToCelsius(data) {
     let kelvinTemp = data.main.temp;
 
     let celsiusTemp = Math.round(kelvinTemp - 273.15);
-    tempValue.innerText = celsiusTemp;
+    tempValue.innerHTML = `${celsiusTemp}<span>&deg;</span>`;   
+}
+
+// Test
+function fetchImage(data) {
+    const icon = data.weather[0].icon;
     
+    const image = document.querySelector("img").src = `./assets/${icon}.png`;
+    // image.innerHTML = '<img src="./assets/04n.png">';
+
+    // image.innerHTML = `<img src="./assets/${icon}.png">`; 
+
+    console.log(image)
+    console.log(icon)
 }
