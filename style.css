@@ -18,6 +18,8 @@ body {
     box-shadow: 0rem 1.5rem 1.6rem -0.8rem #333;
     padding: 3rem 4rem 2rem 4rem;
     border-radius: 1rem;
+
+    position: relative;
 }
 
 .weather-values {
@@ -30,7 +32,7 @@ body {
     flex-direction: column;
 }
 
-.location-value {
+.location-text {
     font-size: 1rem;
 }
 
@@ -80,4 +82,25 @@ body {
 img {
     width: 7rem;
     height: auto;
+}
+
+/* Error Handler */
+.error-popup {
+    width: 80%;
+    height: 3rem;
+    background: #fff;
+    border-radius: 0.3rem;
+    position: absolute;
+    left: 10%;
+
+    display: none;
+}
+
+.error-message {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    font-weight: bold;
 }
