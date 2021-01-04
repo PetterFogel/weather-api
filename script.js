@@ -16,25 +16,34 @@ async function fetchApiwithFetch() {
     const searchInput = document.getElementById("input-value");
     const inputValue = searchInput.value;
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=a55a8434945c72a639d00f4164990b98`;
-    const result = await fetch(url);
-    const data = await result.json();
-    console.log(data);
-    displayWeather(data);
+    try {
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=a55a8434945c72a639d00f4164990b98`;
+        const result = await fetch(url);
+        const data = await result.json();
+        // console.log(data);
+    
+        displayWeather(data);
+    } catch(error) {
+        handleError(error);
+    }
+    searchInput.value = "";
+}
+
+function handleError(error) {
+    console.error(error);
+    const errorHandler = document.querySelector(".error-popup");
+    errorHandler.style.display = "block", "flex";
 }
 
 function displayWeather(data) {
-    fetchHtmlElements(data);
+    displayLocation(data);
     calculateToCelsius(data);
-    // Test
-    fetchImage(data);
+    fetchIcon(data);
 }
 
-function fetchHtmlElements(data) {
-    const locationValue = document.querySelector(".location-value");
+function displayLocation(data) {
+    const locationValue = document.querySelector(".location-text");
     locationValue.innerText = data.name + ", " + data.sys.country;
-
-    console.log(data.sys.country);
 }
 
 function calculateToCelsius(data) {
@@ -46,14 +55,7 @@ function calculateToCelsius(data) {
 }
 
 // Test
-function fetchImage(data) {
+function fetchIcon(data) {
     const icon = data.weather[0].icon;
-    
     const image = document.querySelector("img").src = `./assets/${icon}.png`;
-    // image.innerHTML = '<img src="./assets/04n.png">';
-
-    // image.innerHTML = `<img src="./assets/${icon}.png">`; 
-
-    console.log(image)
-    console.log(icon)
 }
