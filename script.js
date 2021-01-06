@@ -20,9 +20,8 @@ async function fetchApiwithFetch() {
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=a55a8434945c72a639d00f4164990b98`;
         const result = await fetch(url);
         const data = await result.json();
-        // console.log(data);
     
-        displayWeather(data);
+        displayWeatherByApi(data);
     } catch(error) {
         handleError(error);
     }
@@ -30,15 +29,20 @@ async function fetchApiwithFetch() {
 }
 
 function handleError(error) {
-    console.error(error);
     const errorHandler = document.querySelector(".error-popup");
-    errorHandler.style.display = "block", "flex";
+    errorHandler.style.display = "block";
+
+    const errorExit = document.querySelector(".error-popup i");
+    errorExit.addEventListener("click", () => {
+        errorHandler.style.display = "none";
+        console.clear();
+    });
 }
 
-function displayWeather(data) {
+function displayWeatherByApi(data) {
     displayLocation(data);
     calculateToCelsius(data);
-    fetchIcon(data);
+    fetchCloudIcon(data);
 }
 
 function displayLocation(data) {
@@ -54,8 +58,7 @@ function calculateToCelsius(data) {
     tempValue.innerHTML = `${celsiusTemp}<span>&deg;</span>`;   
 }
 
-// Test
-function fetchIcon(data) {
+function fetchCloudIcon(data) {
     const icon = data.weather[0].icon;
     const image = document.querySelector("img").src = `./assets/${icon}.png`;
 }
