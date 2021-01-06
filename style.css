@@ -16,9 +16,8 @@ body {
 .app-container {
     background: linear-gradient(135deg, rgba(58,163,169,1) 30%, rgba(50,146,155,1) 35%, rgba(65,100,125,1) 61%, rgba(51,70,93,1) 78%);
     box-shadow: 0rem 1.5rem 1.6rem -0.8rem #333;
-    padding: 3rem 4rem 2rem 4rem;
+    padding: 2rem 4rem;
     border-radius: 1rem;
-
     position: relative;
 }
 
@@ -36,8 +35,9 @@ body {
     font-size: 1rem;
 }
 
-.weather-values i {
-    font-size: 5rem;
+img {
+    width: 5rem;
+    height: auto;
 }
 
 .temp-value {
@@ -79,11 +79,6 @@ body {
     background: #31868a;
 }
 
-img {
-    width: 7rem;
-    height: auto;
-}
-
 /* Error Handler */
 .error-popup {
     width: 80%;
@@ -103,4 +98,17 @@ img {
     align-items: center;
     color: red;
     font-weight: bold;
+}
+
+.error-popup i {
+    position: absolute;
+    top: 0.3rem;
+    right: 0.4rem;
+    font-size: 1.2rem;
+    color: rgb(189, 189, 189);
+    cursor: pointer;
+}
+
+.error-popup i:hover {
+    color: rgb(160, 160, 160);
 }
