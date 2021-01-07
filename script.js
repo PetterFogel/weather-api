@@ -29,8 +29,13 @@ async function fetchApiwithFetch() {
 }
 
 function handleError(error) {
+    console.error(error);
     const errorHandler = document.querySelector(".error-popup");
     errorHandler.style.display = "block";
+
+    const errorMessage = document.querySelector(".error-popup p");
+    errorMessage.innerText = "Cannot find location";
+    errorMessage.classList.add("error-message");
 
     const errorExit = document.querySelector(".error-popup i");
     errorExit.addEventListener("click", () => {
