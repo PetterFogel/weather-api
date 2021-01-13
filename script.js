@@ -15,22 +15,27 @@ function addEventListeners() {
 
 function getLocalWeather() {
     if(navigator.geolocation) {
-        fetchLocalWeather();
+        test();
     } else {
         console.log("Error Handler");
     }
 }
 
-function fetchLocalWeather() {
+async function test() {
     let long;
     let lat;
-    
+
     navigator.geolocation.getCurrentPosition((position) => {
         long = position.coords.longitude;
         lat = position.coords.latitude;
+
+        const api = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=hourly,daily&appid=a55a8434945c72a639d00f4164990b98`;
+        console.log(api)
+
+        console.log(position);
         console.log(long);
         console.log(lat);
-        });
+    });
 }
 
 async function fetchApiwithFetch() {
