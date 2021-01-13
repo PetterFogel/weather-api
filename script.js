@@ -1,6 +1,7 @@
 window.addEventListener("load", main);
 
 function main() {
+    getLocalWeather();
     addEventListeners();
 }
 
@@ -12,15 +13,36 @@ function addEventListeners() {
     });
 }
 
+function getLocalWeather() {
+    if(navigator.geolocation) {
+        fetchLocalWeather();
+    } else {
+        console.log("Error Handler");
+    }
+}
+
+function fetchLocalWeather() {
+    let long;
+    let lat;
+    
+    navigator.geolocation.getCurrentPosition((position) => {
+        long = position.coords.longitude;
+        lat = position.coords.latitude;
+        console.log(long);
+        console.log(lat);
+        });
+}
+
 async function fetchApiwithFetch() {
     const searchInput = document.getElementById("input-value");
     const inputValue = searchInput.value;
-
+    
     try {
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=a55a8434945c72a639d00f4164990b98`;
         const result = await fetch(url);
         const data = await result.json();
-    
+        console.log(data);
+        
         displayWeatherByApi(data);
     } catch(error) {
         handleError(error);
