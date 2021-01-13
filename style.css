@@ -59,17 +59,19 @@ img {
     border-radius: 0.6rem;
     border: none;
     outline: none;
+    font-size: 1rem;
     color: #333;
-    height: 2rem;
+    height: 2.5rem;
     width: 100%;
     margin-bottom: 1rem;
-    padding-left: 0.5rem;
+    padding-left: 0.6rem;
 }
 
 .btn {
     display: block;
-    padding: 0.5rem 0.8rem;
+    padding: 0.6rem 0.8rem;
     border-radius: 0.6rem;
+    font-size: 1rem;
     border: none;
     outline: none;
     background: #3aa3a9;
