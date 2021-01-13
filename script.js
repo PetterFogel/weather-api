@@ -29,13 +29,16 @@ async function test() {
         long = position.coords.longitude;
         lat = position.coords.latitude;
 
-        const api = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=hourly,daily&appid=a55a8434945c72a639d00f4164990b98`;
-        console.log(api)
-
-        console.log(position);
-        console.log(long);
-        console.log(lat);
+        test2(long, lat);
     });
+}
+
+async function test2(long, lat) {
+    const api = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=&appid=a55a8434945c72a639d00f4164990b98`;
+    const result = await fetch(api);
+    const data = await result.json();
+    console.log(data)
+
 }
 
 async function fetchApiwithFetch() {
