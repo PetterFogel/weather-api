@@ -34,11 +34,19 @@ async function test() {
 }
 
 async function test2(long, lat) {
-    const api = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=&appid=a55a8434945c72a639d00f4164990b98`;
-    const result = await fetch(api);
-    const data = await result.json();
-    console.log(data)
 
+    try {
+        const api = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=&appid=a55a8434945c72a639d00f4164990b98`;
+        const result = await fetch(api);
+        const data = await result.json();
+        console.log(data)
+        console.log(data.current.temp);
+
+        displayWeatherByApi(data);
+    } catch(error) {
+        console.log("error");
+        handleError(error);
+    }
 }
 
 async function fetchApiwithFetch() {
