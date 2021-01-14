@@ -15,13 +15,11 @@ function addEventListeners() {
 
 function getLocalWeather() {
     if(navigator.geolocation) {
-        test();
-    } else {
-        console.log("Error Handler");
+        fetchCurrentPosition();
     }
 }
 
-async function test() {
+async function fetchCurrentPosition() {
     let long;
     let lat;
 
@@ -42,9 +40,13 @@ async function test2(long, lat) {
         console.log(data)
         console.log(data.current.temp);
 
+        const localLocationValue = document.querySelector(".location-text");
+        localLocationValue.innerText = data.timezone;
+
+        console.log(data.timezone);
+
         displayWeatherByApi(data);
     } catch(error) {
-        console.log("error");
         handleError(error);
     }
 }
