@@ -1,3 +1,5 @@
+// IF looparna kommer bara ange lokala vädret eftersom data === true inte är sann.
+
 window.addEventListener("load", main);
 
 function main() {
@@ -38,12 +40,9 @@ async function test2(long, lat) {
         const result = await fetch(api);
         const data = await result.json();
         console.log(data)
-        console.log(data.current.temp);
+        // console.log(data.current.temp);
 
-        const localLocationValue = document.querySelector(".location-text");
-        localLocationValue.innerText = data.timezone;
-
-        console.log(data.timezone);
+        // console.log(data.timezone);
 
         displayWeatherByApi(data);
     } catch(error) {
@@ -91,19 +90,39 @@ function displayWeatherByApi(data) {
 }
 
 function displayLocation(data) {
-    const locationValue = document.querySelector(".location-text");
-    locationValue.innerText = data.name + ", " + data.sys.country;
+    if (data === true) {
+        const locationValue = document.querySelector(".location-text");
+        locationValue.innerText = data.name + ", " + data.sys.country;
+    } else {
+        const local = document.querySelector(".location-text");
+        local.innerText = data.timezone;
+        console.log(local);
+    }
 }
 
 function calculateToCelsius(data) {
-    const tempValue = document.querySelector(".temp-value");
-    let kelvinTemp = data.main.temp;
-
-    let celsiusTemp = Math.round(kelvinTemp - 273.15);
-    tempValue.innerHTML = `${celsiusTemp}<span>&deg;</span>`;   
+    if (data === true) {
+        const tempValue = document.querySelector(".temp-value");
+        let kelvinTemp = data.main.temp;
+        let celsiusTemp = Math.round(kelvinTemp - 273.15);
+        tempValue.innerHTML = `${celsiusTemp}<span>&deg;</span>`;
+        console.log(data.main.temp);
+    } else {
+        const localTemp = document.querySelector(".temp-value");
+        let kelvinTemp = data.current.temp;
+        let celsiusTemp = Math.round(kelvinTemp - 273.15);
+        localTemp.innerHTML = `${celsiusTemp}<span>&deg;</span>`;
+        console.log(localTemp);
+    }
 }
 
 function fetchCloudIcon(data) {
-    const icon = data.weather[0].icon;
-    const image = document.querySelector("img").src = `./assets/${icon}.png`;
+    if (data === true) {
+        const icon = data.weather[0].icon;
+        const image = document.querySelector("img").src = `./assets/${icon}.png`;
+    } else {
+        const icon = data.current.weather[0].icon;
+        const image = document.querySelector("img").src = `./assets/${icon}.png`;
+        console.log(image);
+    }
 }
