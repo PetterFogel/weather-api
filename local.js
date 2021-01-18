@@ -23,9 +23,6 @@ async function test2(long, lat) {
         const result = await fetch(api);
         const data = await result.json();
         console.log(data)
-        // console.log(data.current.temp);
-
-        // console.log(data.timezone);
 
         displayLocalWeather(data);
     } catch(error) {
@@ -34,5 +31,17 @@ async function test2(long, lat) {
 }
 
 function displayLocalWeather(data) {
+    const local = document.querySelector(".location-text");
+    local.innerText = data.timezone;
+    console.log(local);
 
+    const localTemp = document.querySelector(".temp-value");
+    let kelvinTemp = data.current.temp;
+    let celsiusTemp = Math.round(kelvinTemp - 273.15);
+    localTemp.innerHTML = `${celsiusTemp}<span>&deg;</span>`;
+    console.log(localTemp);
+
+    const icon = data.current.weather[0].icon;
+    const image = document.querySelector("img").src = `./assets/${icon}.png`;
+    console.log(image);
 }
