@@ -53,39 +53,19 @@ function displayWeather(data) {
 }
 
 function displayLocation(data) {
-    if ("submit" === true) {
         const locationValue = document.querySelector(".location-text");
         locationValue.innerText = data.name + ", " + data.sys.country;
-    } else {
-        const local = document.querySelector(".location-text");
-        local.innerText = data.timezone;
-        console.log(local);
-    }
 }
 
 function calculateToCelsius(data) {
-    if (data === true) {
         const tempValue = document.querySelector(".temp-value");
         let kelvinTemp = data.main.temp;
         let celsiusTemp = Math.round(kelvinTemp - 273.15);
         tempValue.innerHTML = `${celsiusTemp}<span>&deg;</span>`;
         console.log(data.main.temp);
-    } else {
-        const localTemp = document.querySelector(".temp-value");
-        let kelvinTemp = data.current.temp;
-        let celsiusTemp = Math.round(kelvinTemp - 273.15);
-        localTemp.innerHTML = `${celsiusTemp}<span>&deg;</span>`;
-        console.log(localTemp);
-    }
 }
 
 function fetchCloudIcon(data) {
-    if (data === true) {
         const icon = data.weather[0].icon;
         const image = document.querySelector("img").src = `./assets/${icon}.png`;
-    } else {
-        const icon = data.current.weather[0].icon;
-        const image = document.querySelector("img").src = `./assets/${icon}.png`;
-        console.log(image);
-    }
 }
